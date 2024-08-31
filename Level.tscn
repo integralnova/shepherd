@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dciwp81pwqhqj"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_0dq2o"]
+[ext_resource type="Script" path="res://player.gd" id="1_qf0ih"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_ub6oo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fa3ua"]
+albedo_color = Color(0.167668, 0.219104, 0.0824078, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_s7qnl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6gv0"]
+albedo_color = Color(0.971384, 0.937446, 0.899632, 1)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_0dq2o")
+
+[node name="Ground" type="CSGBox3D" parent="."]
+material_overlay = SubResource("StandardMaterial3D_fa3ua")
+use_collision = true
+size = Vector3(100, 0.5, 100)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42064, 0)
+script = ExtResource("1_qf0ih")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_s7qnl")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_g6gv0")
+metadata/_edit_group_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-3.33314e-08, 0.64695, -0.762533, 2.82791e-08, 0.762533, 0.64695, 1, 0, -4.37114e-08, -30, 10, 0)
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 400, 0)
+projection = 1
+fov = 23.0
+size = 100.0
+frustum_offset = Vector2(1, 0)
+near = 0.001
+script = ExtResource("2_ub6oo")
