@@ -4,7 +4,6 @@ extends CharacterBody3D
 const SPEED = 20
 const JUMP_VELOCITY = 4.5
 
-
 var ray_origin = Vector3()
 var ray_target = Vector3()
 var pos
@@ -41,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		
 	target_pos = (pos - position).normalized()
 	
-	velocity.x -= pos.x
-	velocity.z += pos.z
+	velocity = target_pos * SPEED
+	
 		 
 	move_and_slide()
