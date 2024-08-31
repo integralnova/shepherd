@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dciwp81pwqhqj"]
+[gd_scene load_steps=8 format=3 uid="uid://dciwp81pwqhqj"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_0dq2o"]
 [ext_resource type="Script" path="res://player.gd" id="1_qf0ih"]
@@ -11,6 +11,8 @@ albedo_color = Color(0.167668, 0.219104, 0.0824078, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6gv0"]
 albedo_color = Color(0.971384, 0.937446, 0.899632, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jwchm"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_0dq2o")
@@ -30,6 +32,9 @@ mesh = SubResource("CapsuleMesh_s7qnl")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_g6gv0")
 metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CylinderShape3D_jwchm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-3.33314e-08, 0.64695, -0.762533, 2.82791e-08, 0.762533, 0.64695, 1, 0, -4.37114e-08, -30, 10, 0)

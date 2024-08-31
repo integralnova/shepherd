@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 20
+
 const JUMP_VELOCITY = 4.5
 
 var ray_origin = Vector3()
