@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+signal posit(posit)
 
 const SPEED = 20
 
@@ -45,3 +46,7 @@ func _physics_process(delta: float) -> void:
 	
 		 
 	move_and_slide()
+	moved()
+
+func moved():
+	posit.emit(position)

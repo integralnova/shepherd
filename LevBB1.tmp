@@ -57,6 +57,5 @@ script = ExtResource("2_ub6oo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7402, 0.894294, 9.09398)
 
 [connection signal="posit" from="Player" to="Sheep/CharacterBody3D" method="_on_player_posit"]
-[connection signal="camerapos" from="Camera3D" to="Player" method="_on_camera_3d_camerapos"]
 
 [editable path="Sheep"]
