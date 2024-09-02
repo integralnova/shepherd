@@ -1,13 +1,13 @@
 extends Camera3D
 signal camerapos(pos)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 var ray_origin = Vector3()
 var ray_target = Vector3()
 var pos 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func _ready() -> void:
+	pass # Replace with function body.
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("click"):
 		const RAY_LENGTH = 1000
