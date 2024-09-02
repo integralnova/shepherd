@@ -3,7 +3,7 @@ signal camerapos(pos)
 
 var ray_origin = Vector3()
 var ray_target = Vector3()
-var pos 
+var pos = Vector3()
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 		const RAY_LENGTH = 1000
 
 		var space_state = get_world_3d().direct_space_state
-		var cam = %Camera3D
+		var cam = self
 		var mousepos = get_viewport().get_mouse_position()
 
 		var origin = cam.project_ray_origin(mousepos)

@@ -12,9 +12,9 @@ var target_pos
 func _ready() -> void:
 	campos = position
 	target_pos = position
+	velocity = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
-	await get_tree().create_timer(3).timeout
 	target_pos = (campos - position).normalized()
 	velocity = target_pos * SPEED
 	move_and_slide()
